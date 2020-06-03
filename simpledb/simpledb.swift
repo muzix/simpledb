@@ -52,7 +52,6 @@ final class SimpleDBPageAccess: PageReader, PageWriter {
     if let cached = cachedPage[Int(pageNumber)] {
       return cached
     }
-//    print("\nRead page: \(pageNumber)")
     let offset = pageNumber * pageSize
     try fileHandle.seek(pos: UInt64(offset))
     let data = try fileHandle.read(offset: UInt64(offset), len: Int(pageSize))
@@ -61,7 +60,6 @@ final class SimpleDBPageAccess: PageReader, PageWriter {
   }
 
   func write(page: SimpleDBPage, at pageNumber: Int) throws {
-//    print("\nWrite page: \(pageNumber)")
     let dataToWrite = try page.getBuffer(pageSize: pageSize)
     let offset = pageNumber * Int(pageSize)
     try fileHandle.seek(pos: UInt64(offset))

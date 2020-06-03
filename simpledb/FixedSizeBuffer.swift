@@ -35,10 +35,6 @@ class FixedSizeBuffer {
     return data.endIndex
   }
 
-//  subscript(bounds: Range<Data.Index>) -> Data {
-//    return _data[bounds.lowerBound..<bounds.upperBound]
-//  }
-
   init(length: Int) {
     self.length = length
     self._data = Data(repeating: 0, count: length)

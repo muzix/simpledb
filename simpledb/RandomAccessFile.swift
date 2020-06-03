@@ -26,12 +26,6 @@ class RandomAccessFileImpl: RandomAccessFile {
     self.fileHandle = fileHandle
   }
 
-//  func write<T>(_ val: T) throws {
-//    var mutableVal = val
-//    let data = Data(bytes: &mutableVal, count: MemoryLayout.size(ofValue: val))
-//    fileHandle.write(data)
-//  }
-
   func write(_ data: Data) throws {
     fileHandle.write(data)
 //    fileHandle.synchronizeFile()
@@ -57,9 +51,4 @@ class RandomAccessFileImpl: RandomAccessFile {
   func availableData() -> Data {
     return fileHandle.availableData
   }
-
-//  func readBool() -> Bool {
-//    let data = fileHandle.readData(ofLength: MemoryLayout<Bool>.size)
-//
-//  }
 }
